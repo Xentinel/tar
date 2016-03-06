@@ -1,68 +1,146 @@
 package com.think.xentinel.netflix;
 
+import java.util.ArrayList;
+
 public class prueba {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList <Pelicula> peliculas = new ArrayList <Pelicula> ();
 		
-		Pelicula arregloPeliculas [] = new Pelicula [5];
-		arregloPeliculas[0] = new Pelicula("Buscando a nemo", "pixar", "animacion", 2000, "90 minutos");
-		arregloPeliculas[1] = new Pelicula("El padrino", "Mario Puzo", "violenta", 1975, "3h 22 min");
-		arregloPeliculas[2] = new Pelicula("Harry el sucio", "Clint Eastwood", "Accion", 1971, "1h 42min");
-		arregloPeliculas[3] = new Pelicula("rocky", "stalone", "aventuras", 1976, "1h 59m");
-		arregloPeliculas[4] = new Pelicula("Sword Of Destiny", "Netflix", "peleas", 2016, "1h 40m");
+		Pelicula nemo = new Pelicula("Buscando a nemo", "pixar", "animacion", 2000, "90 minutos");
+		Pelicula padrino = new Pelicula("El padrino", "Mario Puzo", "violenta", 1975, "3h 22 min");
+		Pelicula harry = new Pelicula("Harry el sucio", "Clint Eastwood", "Accion", 1971, "1h 42min");
+		Pelicula rocky = new Pelicula("rocky", "stalone", "aventuras", 1976, "1h 59m");
+		Pelicula sword = new Pelicula("Sword Of Destiny", "Netflix", "peleas", 2016, "1h 40m");
 		
-		Serie series []= new Serie[5];
-		series[0] = new Serie("Dr house", "David Shoore", "Doctores", 2000,"45m",8);
-		series[1] = new Serie("House of Cards", "netflix", "politica", 2015, "50m", 4);
-		series[2] = new Serie("Los Simpsons","Mat Groening","animacion",1989,"22m",27);
-		series[3] = new Serie("Gossip Girl", "Stephanie Savage", "Drama", 2012,"45m", 6);
-		series[4] = new Serie("Breaking Bad", "Vince Gilligan", "Realista", 2013, "1h", 5);
+		peliculas.add(nemo);
+		peliculas.add(padrino);
+		peliculas.add(harry);
+		peliculas.add(rocky);
+		peliculas.add(sword);
 		
-		arregloPeliculas[0].setTiempoVisto("1 hora");
-		arregloPeliculas[1].setTiempoVisto("25 minutos");
-		series[0].setTiempoVisto("1 hora 45 minutos");
-		series[3].setTiempoVisto("2 horas 23 minutos");
+		peliculas.get(0).setTiempoVisto("1 hora");
+		peliculas.get(1).setTiempoVisto("25 minutos");
+		peliculas.get(0).setTiempoVisto("1 hora 45 minutos");
+		peliculas.get(3).setTiempoVisto("2 horas 23 minutos");
+		peliculas.get(1).marcarVisto();
+		peliculas.get(0).marcarVisto();
 		
-		arregloPeliculas[1].marcarVisto();
-		arregloPeliculas[0].marcarVisto();
-		series[3].marcarVisto();
-		series[0].marcarVisto();
+		Serie house = new Serie("Dr house", "David Shoore", "Doctores", 2000,"45m",8);
+		Serie cards = new Serie("House of Cards", "netflix", "politica", 2015, "50m", 4);
+		Serie simpsons = new Serie("Los Simpsons","Mat Groening","animacion",1989,"22m",27);
+		Serie gossip = new Serie("Gossip Girl", "Stephanie Savage", "Drama", 2012,"45m", 6);
+		Serie breaking = new Serie("Breaking Bad", "Vince Gilligan", "Realista", 2013, "1h", 5);
 		
+		ArrayList <Serie> series = new ArrayList <Serie> ();
+		series.add(house);
+		series.add(cards);
+		series.add(simpsons);
+		series.add(gossip);
+		series.add(breaking);		
+		series.get(0).setTiempoVisto("2h");
+		series.get(1).setTiempoVisto("45m");
+		series.get(0).marcarVisto();
+		series.get(1).marcarVisto();
 		
-		System.out.println("Peliculas y Series Vistas: ");
-		for (int i = 0; i < arregloPeliculas.length; i++) {
-			if(arregloPeliculas[i].esVisto()) {
-				System.out.println(arregloPeliculas[i].toString());
-				System.out.println();
-			}
-			
-			if (series[i].esVisto()) {
-				System.out.println(series[i].toString());
+		//TODAS LAS PELICULAS
+		System.out.println("Todas las series y peliculas: ");
+		System.out.println("--------------------------------------------------");
+		
+		try {
+			for (int i = 0; i < series.size()+1; i++) {
+				System.out.println(series.get(i).toString());
 				System.out.println();
 			}
 		}
+		catch (IndexOutOfBoundsException e) {
+			System.out.println("\n----------------------------------");
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+			System.out.println("----------------------------------\n");
+		}		
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error Inesperado");
+			e.printStackTrace();
+		}
 		
+		
+		
+		try {
+			for (int i = 0; i < peliculas.size(); i++) {
+				System.out.println(peliculas.get(i).toString());
+				System.out.println();
+			}
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+		}
+		
+				
+		System.out.println("--------------------------------------------------");
+		System.out.println("Series Vistas: ");
+		
+		try {
+			for (int i = 0; i < series.size(); i++) {
+				if (series.get(i).esVisto()) {
+					System.out.println(series.get(i).toString());
+					System.out.println();
+				}
+			}
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+		}
+		
+		System.out.println("--------------------------------------------------");
+		System.out.println("Peliculas vistas:  ");
+		try {
+			for (int i = 0; i < peliculas.size(); i++) {
+				if (peliculas.get(i).esVisto()) {
+					System.out.println(peliculas.get(i).toString());
+					System.out.println();
+				}
+			}
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+		}
+		
+		System.out.println("--------------------------------------------------");		
 		System.out.println();
 		System.out.println("Serie con mas temporadas");
 		Serie serieMasTemporadas;
-		serieMasTemporadas=series[0];
-		for (int i = 1; i < series.length; i++) {
-			if (series[i].getTemporadas()>serieMasTemporadas.getTemporadas()) {
-				serieMasTemporadas=series[i];
+		serieMasTemporadas=series.get(0);
+		try {
+			for (int i = 1; i < series.size(); i++) {
+				if (series.get(i).getTemporadas()>serieMasTemporadas.getTemporadas()) {
+					serieMasTemporadas=series.get(i);
+				}
 			}
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("\n----------------------------------");
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+			System.out.println("----------------------------------\n");
 		}
 		System.out.println(serieMasTemporadas.toString());
-		
-		
-		System.out.println();
+		System.out.println("--------------------------------------------------");
+		System.out.println();	
 		System.out.println("Pelicula mas reciente");
 		Pelicula peliculaMasReciente;
-		peliculaMasReciente = arregloPeliculas[0];
-		for (int i = 1; i < arregloPeliculas.length; i++) {
-			if (arregloPeliculas[i].getAnio()>peliculaMasReciente.getAnio()) {
-				peliculaMasReciente=arregloPeliculas[i];
-			}			
+		peliculaMasReciente = peliculas.get(0);
+		try {
+			for (int i = 1; i < peliculas.size(); i++) {
+				if (peliculas.get(i).getAnio()>peliculaMasReciente.getAnio()) {
+					peliculaMasReciente=peliculas.get(i);
+				}			
+			}
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println("\n----------------------------------");
+			System.out.println("Error, estas tratando de ingresar a un indice no valido o fuera de los límites");
+			System.out.println("----------------------------------\n");
 		}
 		System.out.println(peliculaMasReciente.toString());
 		
