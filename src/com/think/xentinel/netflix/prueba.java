@@ -4,7 +4,8 @@ public class prueba {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Pelicula arregloPeliculas [] = new Pelicula [5];
+		
+		/*Pelicula arregloPeliculas [] = new Pelicula [5];
 		arregloPeliculas[0] = new Pelicula("Buscando a nemo", "pixar", "animacion", 2000, "90 minutos");
 		arregloPeliculas[1] = new Pelicula("El padrino", "Mario Puzo", "violenta", 1975, "3h 22 min");
 		arregloPeliculas[2] = new Pelicula("Harry el sucio", "Clint Eastwood", "Accion", 1971, "1h 42min");
@@ -36,7 +37,9 @@ public class prueba {
 		System.out.println("Series:  ");
 		for (int i = 0; i < series.length; i++) {
 			System.out.println(series[i].toString());
-		}
+		}*/
+		
+		
 	
 		
 

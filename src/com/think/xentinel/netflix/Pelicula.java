@@ -1,6 +1,8 @@
 package com.think.xentinel.netflix;
 
-public class Pelicula implements IVisualizable {
+public class Pelicula {
+	
+	/*Atributos de la clase pelicula*/
 	private String titulo;
 	private String genero;
 	private String creador;
@@ -9,6 +11,11 @@ public class Pelicula implements IVisualizable {
 	private boolean visto;
 	private double tiempoVisto;
 	
+	/*
+	 * Este es el metodo constructor por default
+	 * instancia un objeto de la clase pelicula
+	 * con valores de los atributos por default
+	 * */
 	public Pelicula() {
 		this.titulo = "titulo default";
 		this.genero = "desconocido";
@@ -18,6 +25,14 @@ public class Pelicula implements IVisualizable {
 		this.visto = false;
 		this.tiempoVisto=0;
 	}
+	
+	/**
+	 * Método constructor con dos argumentos,
+	 * instancia el objeto pelicula con los demas
+	 * atributos por default.
+	 * @param titulo  String: el titulo de la pelicula
+	 * @param creador String: el creador o autor de la pelicula
+	 * */
 	
 	public Pelicula(String titulo, String creador) {
 		this.titulo = titulo;
@@ -29,6 +44,17 @@ public class Pelicula implements IVisualizable {
 		this.tiempoVisto = 0;
 	}
 	
+	/**
+	 * Método constructor, instancia un objeto pelicula
+	 * con todos los parametros de la pelicula definidos
+	 * por el usuario.
+	 * @param titulo el titulo de la pelicula
+	 * @param creador el autor de la pelicula
+	 * @param genero el genero de la pelicula
+	 * @param anio el año en que fue creada 
+	 * @param duracion duracion es deseable el formato p.ejemplo 1h 23m
+	 */
+	
 	public Pelicula (String titulo, String creador, String genero, int anio, String duracion) {
 		this.titulo = titulo;
 		this.creador = creador;
@@ -39,64 +65,110 @@ public class Pelicula implements IVisualizable {
 		this.tiempoVisto = 0;
 	}
 	
+	/**
+	 * Obtener el titulo del objeto
+	 * @return String: titulo del objeto
+	 */
+	
 	public String getTitulo() {
 		return titulo;
 	}
+	/**
+	 * Cambia el titulo de la objeto
+	 * @param titulo titulo a colocar en el objeto
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+	
+	/**
+	 * obtiene el genero del objeto
+	 * @return genero del objeto
+	 */
 	public String getGenero() {
 		return genero;
 	}
+	
+	/**
+	 * cambia el genero del objeto
+	 * @param genero genero a colocar
+	 */
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+	/**
+	 * El creador del objeto
+	 * @return nombre del creador
+	 */
 	public String getCreador() {
 		return creador;
 	}
+	
+	/**
+	 * define el creador del objeto
+	 * @param creador nombre del creador
+	 */
 	public void setCreador(String creador) {
 		this.creador = creador;
 	}
+	
+	/**
+	 * el año de creacion del objeto
+	 * @return año de creacion
+	 */
 	public int getAnio() {
 		return anio;
 	}
+	
+	/**
+	 * cambia el año de creacion
+	 * @param anio nuevo año de creacion
+	 */
 	public void setAnio(int anio) {
 		this.anio = anio;
 	}
+	
+	/**
+	 * la duracion del objeto
+	 * @return String: duracion
+	 */
 	public String getDuracion() {
 		return duracion;
 	}
+	
+	/**
+	 * Cambia la duracion del objeto
+	 * @param duracion duracion nueva
+	 */
 	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
-	public boolean isVisto() {
-		return visto;
-	}
-	public void setVisto(boolean visto) {
-		this.visto = visto;
-	}
-	
+		
+	/**
+	 * convierte en string los datos del objeto
+	 * @return String con los datos del objeto 
+	 */
 	public String toString () {
 		String mensaje = this.titulo+" Duracion: "+this.duracion+"\nCreador: "+this.creador+" Genero: "+this.genero+" Año:"+this.anio+" Visto: "+this.visto;
-		return mensaje+"tiempo visto: "+this.tiempoVisto;
+		return mensaje+" tiempo visto: "+this.tiempoVisto;
 	}
+	
+	/**
+	 * regresa un double del tiempo que ha sido visualizado el objeto
+	 * @return double p. ejemplo  1.25 = 1h y 25 min
+	 */
 	public double tiempoVisto() {
 		return  this.tiempoVisto;
 	}
+	
+	/**
+	 * Cambia el tiempo que ha sido visualizado un objeto p ejemplo 1.25 = 1h y 25min
+	 * @param double tiempo 
+	 */
 	public void setTiempoVisto(double tiempo) {
 		this.tiempoVisto = tiempo;
 	}
 
-	@Override
-	public void marcarVisto() {
-		// TODO Auto-generated method stub
-		this.setVisto(true);
-	}
-
-	@Override
-	public boolean esVisto() {
-		// TODO Auto-generated method stub
-		return this.isVisto();
-	}
 
 }
