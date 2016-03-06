@@ -1,6 +1,6 @@
 package com.think.xentinel.netflix;
 
-public class Serie extends Pelicula  {
+public class Serie extends Pelicula {
 	private int temporadas;
 	/*Sus atributos son titulo, no. de temporadas, visto, genero, creador y duracion.*/
 	
@@ -10,7 +10,7 @@ public class Serie extends Pelicula  {
 	 */
 	public Serie() {
 		this.temporadas = 1;
-		this.setTiempoVisto(0);
+		this.setTiempoVisto("0");
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public class Serie extends Pelicula  {
 	public Serie(String titulo, String creador) {
 		super(titulo, creador);
 		this.temporadas =1;
-		this.setTiempoVisto(0);
+		this.setTiempoVisto("0");
 	}
 	/**
 	 * Genera una serie con todos los atributos definidos por el usuario	
@@ -32,11 +32,11 @@ public class Serie extends Pelicula  {
 	 * @param anio año de la serie
 	 * @param duracion duracion de la serie
 	 * @param temporadas numero de temporadas
-	 */
+	 */	
 	public Serie(String titulo, String creador, String genero, int anio, String duracion,int temporadas) {
 		super(titulo, creador, genero, anio, duracion);
 		this.temporadas=temporadas;
-		this.setTiempoVisto(0);
+		this.setTiempoVisto("0");
 	}
 	
 	/**
@@ -44,7 +44,7 @@ public class Serie extends Pelicula  {
 	 * @return un string con la informacion de la serie
 	 */
 	public String toString() {
-		String mensaje = this.getTitulo()+" Duracion: "+this.getDuracion()+" No de temporadas: "+this.getTemporadas()+"\nCreador: "+this.getCreador()+" Genero: "+this.getGenero()+" Año:"+this.getAnio()+" Visto: "+this.isVisto();
+		String mensaje = this.getTitulo()+" Duracion: "+this.getDuracion()+" No de temporadas: "+this.getTemporadas()+"\nCreador: "+this.getCreador()+" Genero: "+this.getGenero()+" Año:"+this.getAnio()+" Visto: "+this.esVisto();
 		return mensaje+" Tiempo visto: "+this.tiempoVisto();	
 	}
 	/**
@@ -62,4 +62,5 @@ public class Serie extends Pelicula  {
 	public void setTemporadas(int temporadas) {
 		this.temporadas = temporadas;
 	}
+
 }

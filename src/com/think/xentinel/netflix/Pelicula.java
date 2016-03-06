@@ -1,6 +1,6 @@
 package com.think.xentinel.netflix;
 
-public class Pelicula {
+public class Pelicula implements IVisualizable {
 	
 	/*Atributos de la clase pelicula*/
 	private String titulo;
@@ -9,7 +9,7 @@ public class Pelicula {
 	private int anio;
 	private String duracion;
 	private boolean visto;
-	private double tiempoVisto;
+	private String tiempoVisto;
 	
 	/*
 	 * Este es el metodo constructor por default
@@ -23,7 +23,7 @@ public class Pelicula {
 		this.anio = 1992;
 		this.duracion = "89 minutos";
 		this.visto = false;
-		this.tiempoVisto=0;
+		this.tiempoVisto="0";
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class Pelicula {
 		this.anio = 1992;
 		this.duracion = "89 minutos";
 		this.visto = false;
-		this.tiempoVisto = 0;
+		this.tiempoVisto = "0";
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class Pelicula {
 		this.anio = anio;
 		this.duracion = duracion;
 		this.visto = false;
-		this.tiempoVisto = 0;
+		this.tiempoVisto = "0";
 	}
 	
 	/**
@@ -152,22 +152,41 @@ public class Pelicula {
 	public String toString () {
 		String mensaje = this.titulo+" Duracion: "+this.duracion+"\nCreador: "+this.creador+" Genero: "+this.genero+" Año:"+this.anio+" Visto: "+this.visto;
 		return mensaje+" tiempo visto: "+this.tiempoVisto;
-	}
-	
+	}	
 	/**
-	 * regresa un double del tiempo que ha sido visualizado el objeto
-	 * @return double p. ejemplo  1.25 = 1h y 25 min
+	 * Cambia el tiempo que ha sido visualizado un objeto p ejemplo 1h y 25min
+	 * @param tiempo Un string que describa el tiempo 
 	 */
-	public double tiempoVisto() {
-		return  this.tiempoVisto;
-	}
-	
-	/**
-	 * Cambia el tiempo que ha sido visualizado un objeto p ejemplo 1.25 = 1h y 25min
-	 * @param double tiempo 
-	 */
-	public void setTiempoVisto(double tiempo) {
+	public void setTiempoVisto(String tiempo) {
 		this.tiempoVisto = tiempo;
+	}
+	
+	
+	///---------------------IMPLEMENTANDO LA INTERFAZ VISUALIZABLE---------------////
+	
+	/**
+	 * cambia el atributo de visto a true.
+	 */
+	@Override 
+	public void marcarVisto() {
+		// TODO Auto-generated method stub
+		this.visto = true;		
+	}
+
+	/**
+	 * Devuelve el estado del atributo visto.
+	 */
+	@Override
+	public boolean esVisto() {
+		// TODO Auto-generated method stub
+		return this.visto;
+	}
+	/**
+	 * Devuelve el tiempo en minutos/segundos que se visualizó el video.
+	 */
+	@Override
+	public String tiempoVisto() {
+		return this.tiempoVisto;
 	}
 
 
